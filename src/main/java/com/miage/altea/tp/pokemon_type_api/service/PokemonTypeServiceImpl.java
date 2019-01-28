@@ -33,6 +33,6 @@ public class PokemonTypeServiceImpl implements PokemonTypeService{
 
     @Override
     public PokemonType getPokemonType(String name) {
-        return this.getPokemonType(name);
+        return this.pokemonTypeRepository.findPokemonTypeByName(name);
     }
 }
