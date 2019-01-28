@@ -1,4 +1,4 @@
-package com.miage.altea.pokemon_type_api.repository.PokemonTypeRepositoryImplTest;
+package com.miage.altea.tp.pokemon_type_api.repository;
 
 import com.miage.altea.tp.pokemon_type_api.repository.PokemonTypeRepository;
 import com.miage.altea.tp.pokemon_type_api.repository.PokemonTypeRepositoryImpl;
