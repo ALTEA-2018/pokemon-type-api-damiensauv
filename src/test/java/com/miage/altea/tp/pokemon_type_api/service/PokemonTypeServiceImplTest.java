@@ -13,7 +13,7 @@ import static org.mockito.Mockito.verify;
 class PokemonTypeServiceImplTest {
 
     @Test
-    void pokemonTypeRepository_shouldBeCalled_whenFindById(){
+    void pokemonTypeRepository_shouldBeCalled_whenFindById() {
         var pokemonTypeRepository = mock(PokemonTypeRepository.class);
         var pokemonTypeService = new PokemonTypeServiceImpl(pokemonTypeRepository);
 
@@ -23,7 +23,7 @@ class PokemonTypeServiceImplTest {
     }
 
     @Test
-    void pokemonTypeRepository_shouldBeCalled_whenFindAll(){
+    void pokemonTypeRepository_shouldBeCalled_whenFindAll() {
         var pokemonTypeRepository = mock(PokemonTypeRepository.class);
         var pokemonTypeService = new PokemonTypeServiceImpl(pokemonTypeRepository);
 
@@ -33,7 +33,7 @@ class PokemonTypeServiceImplTest {
     }
 
     @Test
-    void applicationContext_shouldLoadPokemonTypeService(){
+    void applicationContext_shouldLoadPokemonTypeService() {
         var context = new AnnotationConfigApplicationContext(PokemonTypeServiceImpl.class, PokemonTypeRepositoryImpl.class);
         var serviceByName = context.getBean("pokemonTypeServiceImpl");
         var serviceByClass = context.getBean(PokemonTypeService.class);
@@ -44,7 +44,7 @@ class PokemonTypeServiceImplTest {
     }
 
     @Test
-    void pokemonTypeRepository_shouldBeAutowired_withSpring(){
+    void pokemonTypeRepository_shouldBeAutowired_withSpring() {
         var context = new AnnotationConfigApplicationContext(PokemonTypeServiceImpl.class, PokemonTypeRepositoryImpl.class);
         var service = context.getBean(PokemonTypeServiceImpl.class);
         assertNotNull(service.pokemonTypeRepository);
