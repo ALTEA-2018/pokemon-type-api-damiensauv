@@ -44,11 +44,11 @@ public class TranslationRepositoryImpl implements TranslationRepository {
         if (locale == Locale.ENGLISH) {
 
             List<Translation> translations = this.translations.get(Locale.ENGLISH);
-            return translations.get(id - 1).getName();
+            return translations.stream().filter(translation -> translation.getId() == id).findAny().get().getName();
 
         } else {
             List<Translation> translations = this.translations.get(Locale.FRENCH);
-            return translations.get(id - 1).getName();
+            return translations.stream().filter(translation -> translation.getId() == id).findAny().get().getName();
         }
     }
 }
