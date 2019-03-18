@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -29,11 +28,11 @@ class PokemonTypeController {
 
     @GetMapping("/")
     public List<PokemonType> getAllPokemonTypes() {
-            return this.pokemonTypeService.getAllPokemonTypes();
+        return this.pokemonTypeService.getAllPokemonTypes();
     }
 
     @GetMapping(value = "/", params = "name")
-    public PokemonType getPokemonByName(@RequestParam(value = "name") String name){
+    public PokemonType getPokemonByName(@RequestParam(value = "name") String name) {
         return this.pokemonTypeService.getPokemonType(name);
     }
 
