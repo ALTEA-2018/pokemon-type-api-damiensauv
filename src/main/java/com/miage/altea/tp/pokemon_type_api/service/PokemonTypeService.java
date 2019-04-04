@@ -8,4 +8,5 @@ public interface PokemonTypeService {
     PokemonType getPokemonType(int id);
     List<PokemonType> getAllPokemonTypes();
     PokemonType getPokemonType(String name);
+    List<PokemonType> getallPokememonList(List<String> types);
 }

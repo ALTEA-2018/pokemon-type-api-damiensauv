@@ -24,6 +24,9 @@ class PokemonTypeServiceImplTest {
         var translationRepository = mock(TranslationRepository.class);
         var pokemonTypeService = new PokemonTypeServiceImpl(pokemonTypeRepository, translationRepository);
 
+        when(translationRepository.getPokemonName(25, Locale.FRENCH)).thenReturn("Pikachu-FRENCH");
+        when(pokemonTypeRepository.findPokemonTypeById(25)).thenReturn(new PokemonType());
+        LocaleContextHolder.setLocale(Locale.FRENCH);
         pokemonTypeService.getPokemonType(25);
 
         verify(pokemonTypeRepository).findPokemonTypeById(25);
@@ -43,7 +46,7 @@ class PokemonTypeServiceImplTest {
     @Test
     void applicationContext_shouldLoadPokemonTypeService() {
         var context = new AnnotationConfigApplicationContext(PokemonTypeServiceImpl.class, PokemonTypeRepositoryImpl.class,
-        TranslationRepositoryImpl.class);
+                TranslationRepositoryImpl.class);
         var serviceByName = context.getBean("pokemonTypeServiceImpl");
         var serviceByClass = context.getBean(PokemonTypeService.class);
 
@@ -60,7 +63,7 @@ class PokemonTypeServiceImplTest {
     }
 
     @Test
-    void pokemonNames_shouldBeTranslated_usingLocaleResolver(){
+    void pokemonNames_shouldBeTranslated_usingLocaleResolver() {
         var pokemonTypeService = new PokemonTypeServiceImpl();
 
         var pokemonTypeRepository = mock(PokemonTypeRepository.class);
@@ -80,7 +83,7 @@ class PokemonTypeServiceImplTest {
     }
 
     @Test
-    void allPokemonNames_shouldBeTranslated_usingLocaleResolver(){
+    void allPokemonNames_shouldBeTranslated_usingLocaleResolver() {
         var pokemonTypeService = new PokemonTypeServiceImpl();
 
         var pokemonTypeRepository = mock(PokemonTypeRepository.class);
